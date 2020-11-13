@@ -116,15 +116,6 @@ public class BoardTest {
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
@@ -132,14 +123,6 @@ public class BoardTest {
 
         int expSquare1Result = 2;
         int square1Result = squares[0][2].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -164,15 +147,6 @@ public class BoardTest {
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
@@ -180,14 +154,6 @@ public class BoardTest {
 
         int expSquare1Result = 2;
         int square1Result = squares[2][0].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -212,15 +178,6 @@ public class BoardTest {
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
@@ -228,14 +185,6 @@ public class BoardTest {
 
         int expSquare1Result = 2;
         int square1Result = squares[3][2].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -260,15 +209,6 @@ public class BoardTest {
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
@@ -276,14 +216,6 @@ public class BoardTest {
 
         int expSquare1Result = 2;
         int square1Result = squares[2][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -308,15 +240,6 @@ public class BoardTest {
         squares[3][0].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
@@ -330,14 +253,6 @@ public class BoardTest {
 
         int expSquare3Result = 0;
         int square3Result = squares[3][0].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -364,15 +279,6 @@ public class BoardTest {
         squares[3][1].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
@@ -386,14 +292,6 @@ public class BoardTest {
 
         int expSquare3Result = 0;
         int square3Result = squares[3][1].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -420,15 +318,6 @@ public class BoardTest {
         squares[3][0].setValue(4);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 0;
@@ -442,14 +331,6 @@ public class BoardTest {
 
         int expSquare3Result = 8;
         int square3Result = squares[3][0].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -476,15 +357,6 @@ public class BoardTest {
         squares[3][1].setValue(4);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 0;
@@ -498,14 +370,6 @@ public class BoardTest {
 
         int expSquare3Result = 8;
         int square3Result = squares[3][1].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -532,15 +396,6 @@ public class BoardTest {
         squares[0][3].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
@@ -554,14 +409,6 @@ public class BoardTest {
 
         int expSquare3Result = 0;
         int square3Result = squares[0][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -588,15 +435,6 @@ public class BoardTest {
         squares[1][3].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
@@ -610,14 +448,6 @@ public class BoardTest {
 
         int expSquare3Result = 0;
         int square3Result = squares[1][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -644,15 +474,6 @@ public class BoardTest {
         squares[0][3].setValue(4);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 0;
@@ -666,14 +487,6 @@ public class BoardTest {
 
         int expSquare3Result = 8;
         int square3Result = squares[0][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -700,15 +513,6 @@ public class BoardTest {
         squares[1][3].setValue(4);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 0;
@@ -722,14 +526,6 @@ public class BoardTest {
 
         int expSquare3Result = 8;
         int square3Result = squares[1][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -756,15 +552,6 @@ public class BoardTest {
         squares[0][3].setValue(2);
         instanceBoard.setSquares(squares);
 
-        String[][] board = instanceBoard.getStrBoard();;
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-
         instanceBoard.move(direction);
 
         int expSquare0Result = 4;
@@ -778,14 +565,6 @@ public class BoardTest {
 
         int expSquare3Result = 2;
         int square3Result = squares[0][3].getValue();
-
-        board = instanceBoard.getStrBoard();
-        for (String[] strBoard : board) {
-            for (String str : strBoard) {
-                System.out.print(str);
-            }
-            System.out.println("");
-        }
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);

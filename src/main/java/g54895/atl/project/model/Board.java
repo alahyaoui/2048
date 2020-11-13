@@ -6,9 +6,10 @@
 package g54895.atl.project.model;
 
 /**
- ** Board of the game. Board is made of squares.
+ * Board of the game. Board is made of squares, the squares attribute of the
+ * board is made of an 4x4 array of square.
  *
- * @author Ayoub
+ * @author Ayoub.
  */
 public final class Board {
 
@@ -286,15 +287,15 @@ public final class Board {
     }
 
     /**
-     * Method getStrBoard, converts the board into a tab of string.
+     * Method getIntBoard, converts the board into a tab of int.
      *
      * @return the string form of the board
      */
-    public String[][] getStrBoard() {
-        String[][] board = new String[this.squares.length][this.squares[0].length];
+    public int[][] getIntBoard() {
+        int[][] board = new int[this.squares.length][this.squares[0].length];
         for (int lg = 0; lg < board.length; lg++) {
             for (int col = 0; col < board[0].length; col++) {
-                board[lg][col] = squares[lg][col].toString();
+                board[lg][col] = squares[lg][col].getValue();
             }
         }
         return board;

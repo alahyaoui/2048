@@ -22,10 +22,10 @@ public class View implements InterfaceView {
      * @param board a Board
      */
     public void displayBoard(Board board) {
-        String[][] arrayBoard = board.getStrBoard();
-        for (String[] strBoard : arrayBoard) {
-            for (String str : strBoard) {
-                System.out.print(str);
+        int[][] arrayBoard = board.getIntBoard();
+        for (int[] nbArrayRow : arrayBoard) {
+            for (int nb : nbArrayRow) {
+                System.out.printf("[%4d  ]", nb);
             }
             System.out.println("");
         }
@@ -34,7 +34,7 @@ public class View implements InterfaceView {
     /**
      * Method askDirection , asks the direction and return it.
      *
-     * @return an integer representing a Direction. 
+     * @return an integer representing a Direction.
      */
     public int askDirection() {
         int direction;

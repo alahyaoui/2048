@@ -99,10 +99,4 @@ public class Square {
     public void resetMerged() {
         this.hasMerged = false;
     }
-
-    @Override
-    public String toString() {
-        return "[  " + value + "  ]";
-    }
-
 }

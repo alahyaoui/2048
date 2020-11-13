@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class GameTest {
 
-    Game instanceGame ;//= new Game();
+    Game instanceGame;//= new Game();
 
     @BeforeEach
     public void setUp() {
@@ -57,11 +57,11 @@ public class GameTest {
 
         Board instanceBoard = new Board();
 
-        Square[][] squares = 
-        {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
@@ -89,11 +89,11 @@ public class GameTest {
         instanceGame.startParty();
         Board instanceBoard = new Board();
 
-        Square[][] squares = 
-        {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2048);
         squares[2][2].setValue(2);
@@ -120,11 +120,11 @@ public class GameTest {
         boolean expResult = false;
         boolean result = instanceBoard.checkFull();
 
-        Square[][] squares = 
-        {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         int nb1 = 2;
         int nb2 = 64;
