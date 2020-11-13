@@ -103,9 +103,11 @@ public final class Board {
     public boolean checkMovable() {
         for (int lg = 0; lg < this.squares.length; lg++) {
             for (int col = 0; col < this.squares[0].length; col++) {
-                if (lg + 1 < 4 && squares[lg][col].isMergable(squares[lg + 1][col + 0])) {
+                if (lg + 1 < 4
+                        && squares[lg][col].isMergable(squares[lg + 1][col + 0])) {
                     return true;
-                } else if (col + 1 < 4 && squares[lg][col].isMergable(squares[lg + 0][col + 1])) {
+                } else if (col + 1 < 4
+                        && squares[lg][col].isMergable(squares[lg + 0][col + 1])) {
                     return true;
                 }
             }
@@ -201,8 +203,10 @@ public final class Board {
                             && squares[lg][col].getValue() != 0)) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         lg = 3;
-                    } else if ((squares[lg + dRow][col + dCol].getValue() == squares[lg][col].getValue())
-                            && !squares[lg + dRow][col + dCol].getHasMerged() && !squares[lg][col].getHasMerged()) {
+                    } else if ((squares[lg + dRow][col + dCol].getValue()
+                            == squares[lg][col].getValue())
+                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg][col].getHasMerged()) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         lg = 3;
                     }
@@ -225,8 +229,10 @@ public final class Board {
                             && squares[lg][col].getValue() != 0)) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         col = 0;
-                    } else if (squares[lg + dRow][col + dCol].getValue() == squares[lg][col].getValue()
-                            && !squares[lg + dRow][col + dCol].getHasMerged() && !squares[lg][col].getHasMerged()) {
+                    } else if (squares[lg + dRow][col + dCol].getValue()
+                            == squares[lg][col].getValue()
+                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg][col].getHasMerged()) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         col = 0;
                     }
@@ -249,8 +255,10 @@ public final class Board {
                             && squares[lg][col].getValue() != 0)) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         col = 3;
-                    } else if ((squares[lg + dRow][col + dCol].getValue() == squares[lg][col].getValue())
-                            && !squares[lg + dRow][col + dCol].getHasMerged() && !squares[lg][col].getHasMerged()) {
+                    } else if ((squares[lg + dRow][col + dCol].getValue()
+                            == squares[lg][col].getValue())
+                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg][col].getHasMerged()) {
                         squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
                         col = 3;
                     }

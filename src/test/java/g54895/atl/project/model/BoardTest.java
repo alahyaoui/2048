@@ -144,7 +144,7 @@ public class BoardTest {
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
     }
-    
+
     /**
      * Test of move method, of class Board.
      */
@@ -154,10 +154,11 @@ public class BoardTest {
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
@@ -191,7 +192,7 @@ public class BoardTest {
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
     }
-    
+
     /**
      * Test of move method, of class Board.
      */
@@ -201,10 +202,11 @@ public class BoardTest {
         Direction direction = Direction.DOWN;
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
@@ -238,7 +240,7 @@ public class BoardTest {
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
     }
-    
+
     /**
      * Test of move method, of class Board.
      */
@@ -248,10 +250,11 @@ public class BoardTest {
         Direction direction = Direction.RIGHT;
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
@@ -294,10 +297,11 @@ public class BoardTest {
         System.out.println("Test Move UP 1 and merge the 4 not null square");
         Direction direction = Direction.UP;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][0].setValue(4);
         squares[1][0].setValue(4);
         squares[2][0].setValue(2);
@@ -349,10 +353,11 @@ public class BoardTest {
         System.out.println("Test Move UP 2 and merge the 4 not null square");
         Direction direction = Direction.UP;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][1].setValue(4);
         squares[1][1].setValue(4);
         squares[2][1].setValue(2);
@@ -404,10 +409,11 @@ public class BoardTest {
         System.out.println("Test Move Down 1 and merge the 4 not null square");
         Direction direction = Direction.DOWN;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][0].setValue(2);
         squares[1][0].setValue(2);
         squares[2][0].setValue(4);
@@ -459,10 +465,11 @@ public class BoardTest {
         System.out.println("Test Move Down 2 and merge the 4 not null square");
         Direction direction = Direction.DOWN;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][1].setValue(2);
         squares[1][1].setValue(2);
         squares[2][1].setValue(4);
@@ -514,10 +521,11 @@ public class BoardTest {
         System.out.println("Test Move Left 1 and merge the 4 not null square");
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][0].setValue(4);
         squares[0][1].setValue(4);
         squares[0][2].setValue(2);
@@ -569,10 +577,11 @@ public class BoardTest {
         System.out.println("Test Move Left 2 and merge the 4 not null square");
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[1][0].setValue(4);
         squares[1][1].setValue(4);
         squares[1][2].setValue(2);
@@ -624,10 +633,11 @@ public class BoardTest {
         System.out.println("Test Move Right 1 and merge the 4 not null square");
         Direction direction = Direction.RIGHT;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][0].setValue(2);
         squares[0][1].setValue(2);
         squares[0][2].setValue(4);
@@ -679,10 +689,11 @@ public class BoardTest {
         System.out.println("Test Move Right 2 and merge the 4 not null square");
         Direction direction = Direction.RIGHT;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[1][0].setValue(2);
         squares[1][1].setValue(2);
         squares[1][2].setValue(4);
@@ -734,10 +745,11 @@ public class BoardTest {
         System.out.println("Test Dont Move Left 1 and don't merge any square");
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
         squares[0][0].setValue(4);
         squares[0][1].setValue(2);
         squares[0][2].setValue(4);

@@ -10,7 +10,7 @@ import g54895.atl.project.model.Game;
 import g54895.atl.project.view.View;
 
 /**
- * The main of the project.
+ * The main of the 2048 project.
  *
  * @author Ayoub
  */

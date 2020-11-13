@@ -57,7 +57,8 @@ public class GameTest {
 
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
+        Square[][] squares = 
+        {{new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()}};
@@ -88,7 +89,8 @@ public class GameTest {
         instanceGame.startParty();
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
+        Square[][] squares = 
+        {{new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()}};
@@ -118,7 +120,8 @@ public class GameTest {
         boolean expResult = false;
         boolean result = instanceBoard.checkFull();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
+        Square[][] squares = 
+        {{new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()},
         {new Square(), new Square(), new Square(), new Square()}};
