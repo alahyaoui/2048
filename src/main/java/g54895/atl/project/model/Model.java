@@ -5,6 +5,8 @@
  */
 package g54895.atl.project.model;
 
+import java.beans.PropertyChangeListener;
+
 /**
  * Interface model of the MVC structure.
  *
@@ -45,5 +47,11 @@ public interface Model {
      * @return levelStatus a LevelStatus.
      */
     public Board getBoard();
+    
+    public void change(Direction direction);
+    
+    public void change();
+    
+    public void addPropertyChangeListener(PropertyChangeListener listener);
 
 }

@@ -5,6 +5,9 @@
  */
 package g54895.atl.project.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 /**
  * The Game class gathers the elements necessary for the game to present a
  * facade to the view.
@@ -15,6 +18,7 @@ public class Game implements Model {
 
     private Board board;
     private LevelStatus levelStatus;
+    private PropertyChangeSupport pcs;
 
     /**
      * void construcor of game.
@@ -31,6 +35,7 @@ public class Game implements Model {
     public void startParty() {
         this.board = new Board();
         this.levelStatus = LevelStatus.IN_PROGRESS;
+        this.pcs = new PropertyChangeSupport(this);
     }
 
     /**
@@ -38,8 +43,8 @@ public class Game implements Model {
      */
     @Override
     public void restartParty() {
-        //board.clearBoard();
-        this.startParty();
+        this.board.clearBoard();
+        this.levelStatus = LevelStatus.IN_PROGRESS;
     }
 
     /**
@@ -94,5 +99,49 @@ public class Game implements Model {
     @Override
     public LevelStatus getLevelStatus() {
         return levelStatus;
+    }
+
+    /**
+     * Method change , changes the state of the observers
+     * @param direction
+     */
+    @Override
+    public void change(Direction direction) {
+        int[][] oldBoard = new int[4][4];
+        for (int i = 0; i < this.board.getIntBoard().length; i++) {
+            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
+                oldBoard[i][j] = this.board.getIntBoard()[i][j];
+            }
+        }
+        
+        move(direction);
+        
+        for (int i = 0; i < this.board.getIntBoard().length; i++) {
+            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
+                pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);
+            }
+        }
+    }
+    /**
+     * Method change , changes the state of the observers
+     */
+    public void change() {
+        int[][] oldBoard = new int[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                oldBoard[i][j] = 1;
+            }
+        }
+        
+        for (int i = 0; i < this.board.getIntBoard().length; i++) {
+            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
+                pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);
+            }
+        }
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
     }
 }
