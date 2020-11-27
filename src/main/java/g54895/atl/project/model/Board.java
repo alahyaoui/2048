@@ -117,6 +117,42 @@ public final class Board {
     }
 
     /**
+     * Method checkMovable, checks if the squares of the board are movable.
+     *
+     * @return true if movable false otherwise.
+     */
+    public boolean checkMovableDirection(Direction direction) {
+        for (int lg = 0; lg < this.squares.length; lg++) {
+            for (int col = 0; col < this.squares[0].length; col++) {
+                if (direction == Direction.UP) {
+                    if (lg - 1 >= 0
+                            && squares[lg][col].isMergableDirection(squares[lg - 1][col + 0])) {
+                        return true;
+                    }
+                }else if (direction == Direction.DOWN) {
+                    if (lg + 1 < 4
+                            && squares[lg][col].isMergableDirection(squares[lg + 1][col + 0])) {
+                        return true;
+                    }
+                }else if (direction == Direction.RIGHT) {
+                    if (col + 1 < 4
+                            && squares[lg][col].isMergableDirection(squares[lg + 0][col + 1])) {
+                        return true;
+                    }
+                }else if (direction == Direction.LEFT) {
+                    if (col - 1 >= 0
+                            && squares[lg][col].isMergableDirection(squares[lg + 0][col - 1])) {
+                        return true;
+                    }
+                }
+                
+
+            }
+        }
+        return false;
+    }
+
+    /**
      * Method checkWin, checks if one of the squares of the board contains the
      * 2048 number.
      *
@@ -153,7 +189,8 @@ public final class Board {
     public void move(Direction direction) {
         int dRow = direction.getDeltaRow();
         int dCol = direction.getDeltaCol();
-        if (direction == Direction.UP) {
+        if (checkMovableDirection(direction)){
+            if (direction == Direction.UP) {
             moveUp(dRow, dCol);
         } else if (direction == Direction.DOWN) {
             moveDown(dRow, dCol);
@@ -162,6 +199,10 @@ public final class Board {
         } else if (direction == Direction.RIGHT) {
             moveRight(dRow, dCol);
         }
+        }else{
+            throw new IllegalArgumentException("Mouvement Impossible");
+        }
+        
     }
 
     /**
