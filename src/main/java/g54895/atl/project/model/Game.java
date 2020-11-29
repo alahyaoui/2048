@@ -82,6 +82,22 @@ public class Game implements Model {
     }
 
     /**
+     * Method checkeStatus , check if you can still move if not
+     */
+    @Override
+    public void checkStatus() {
+        if (board.checkWin()) {
+            this.levelStatus = LevelStatus.WIN;
+        } else {
+            if (board.checkFull()) {
+                if (!board.checkMovable()) {
+                    this.levelStatus = LevelStatus.FAIL;
+                }
+            }
+        }
+    }
+
+    /**
      * Simple getter of Board
      *
      * @return board a Board.
@@ -103,6 +119,7 @@ public class Game implements Model {
 
     /**
      * Method change , changes the state of the observers
+     *
      * @param direction
      */
     @Override
@@ -113,15 +130,16 @@ public class Game implements Model {
                 oldBoard[i][j] = this.board.getIntBoard()[i][j];
             }
         }
-        
+
         move(direction);
-        
+
         for (int i = 0; i < this.board.getIntBoard().length; i++) {
             for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
                 pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);
             }
         }
     }
+
     /**
      * Method change , changes the state of the observers
      */
@@ -132,7 +150,7 @@ public class Game implements Model {
                 oldBoard[i][j] = 1;
             }
         }
-        
+
         for (int i = 0; i < this.board.getIntBoard().length; i++) {
             for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
                 pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);

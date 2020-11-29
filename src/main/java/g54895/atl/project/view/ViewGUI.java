@@ -122,7 +122,6 @@ public class ViewGUI implements PropertyChangeListener {
         //ROOT 
         root.getChildren().addAll(branch1, branch2);
         root.setStyle("-fx-background-color: #a5978c");
-        root.requestFocus();
         root.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -174,6 +173,7 @@ public class ViewGUI implements PropertyChangeListener {
     }
 
     public void createBoard() {
+        root.requestFocus();
         leaf1.getChildren().removeAll();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

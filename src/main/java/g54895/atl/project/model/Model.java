@@ -48,10 +48,12 @@ public interface Model {
      */
     public Board getBoard();
     
+    public void checkStatus();
+
     public void change(Direction direction);
-    
+
     public void change();
-    
+
     public void addPropertyChangeListener(PropertyChangeListener listener);
 
 }

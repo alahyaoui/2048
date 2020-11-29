@@ -55,7 +55,8 @@ public class ControllerGUI {
                 checkLevelStatus();
             }          
         } catch (IllegalArgumentException e) {
-            view.displayError("mouvement impossible !!!");
+            game.checkStatus();
+            view.displayError("mouvement impossible !!!");          
         }
     }
 
