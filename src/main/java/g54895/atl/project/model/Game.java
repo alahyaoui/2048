@@ -55,17 +55,23 @@ public class Game implements Model {
      */
     @Override
     public void move(Direction direction) {
-        if (levelStatus == LevelStatus.IN_PROGRESS) {
-            board.move(direction);
-            board.resetMergedBool();
-        } else {
-            throw new IllegalStateException("La partie n'est pas en cours");
+        try {
+            if (levelStatus == LevelStatus.IN_PROGRESS) {
+                board.move(direction);
+                board.resetMergedBool();
+            } else {
+                throw new IllegalStateException("La partie n'est pas en cours");
+            }
+            updateStatus();
+        } catch (IllegalArgumentException moveException) {
+            updateStatus2();
+            throw new IllegalArgumentException("Mouvement impossible");
         }
-        updateStatus();
     }
 
     /**
      * Method updateStatus , updates the status of the game.
+     * fill the baord if erverything is okay.
      */
     private void updateStatus() {
         if (board.checkWin()) {
@@ -82,10 +88,10 @@ public class Game implements Model {
     }
 
     /**
-     * Method checkeStatus , check if you can still move if not
+     * Method updateStatus2 , updates the status of the game.
+     * Don't fill the board.
      */
-    @Override
-    public void checkStatus() {
+    private void updateStatus2() {
         if (board.checkWin()) {
             this.levelStatus = LevelStatus.WIN;
         } else {

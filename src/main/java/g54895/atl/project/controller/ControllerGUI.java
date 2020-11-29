@@ -55,8 +55,7 @@ public class ControllerGUI {
                 checkLevelStatus();
             }          
         } catch (IllegalArgumentException e) {
-            game.checkStatus();
-            view.displayError("mouvement impossible !!!");          
+            checkLevelStatus(); 
         }
     }
 
@@ -81,6 +80,12 @@ public class ControllerGUI {
                 break;
             case FAIL:
                 view.displayFail();
+                break;
+            case IN_PROGRESS:     
+                view.displayError("mouvement impossible !!!");         
+                break;
+            case NOT_STARTED:
+                view.displayError("La partie n'a pas encore commencé");
                 break;
             default:
                 view.displayError("Erreur dans le statut du niveau");
