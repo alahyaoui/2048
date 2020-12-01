@@ -65,7 +65,7 @@ public class ControllerGUI {
             game.change();
             view.createBoard();
         } catch (IllegalArgumentException e) {
-            view.displayError("restart impossible !!!");
+            view.displayError("Restart impossible !!!");
         }
     }
 
@@ -82,7 +82,7 @@ public class ControllerGUI {
                 view.displayFail();
                 break;
             case IN_PROGRESS:     
-                view.displayError("mouvement impossible !!!");         
+                view.displayError("Mouvement impossible !!!");         
                 break;
             case NOT_STARTED:
                 view.displayError("La partie n'a pas encore commencé");

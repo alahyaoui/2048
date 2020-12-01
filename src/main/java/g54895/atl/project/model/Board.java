@@ -129,23 +129,22 @@ public final class Board {
                             && squares[lg][col].isMergableDirection(squares[lg - 1][col + 0])) {
                         return true;
                     }
-                }else if (direction == Direction.DOWN) {
+                } else if (direction == Direction.DOWN) {
                     if (lg + 1 < 4
                             && squares[lg][col].isMergableDirection(squares[lg + 1][col + 0])) {
                         return true;
                     }
-                }else if (direction == Direction.RIGHT) {
+                } else if (direction == Direction.RIGHT) {
                     if (col + 1 < 4
                             && squares[lg][col].isMergableDirection(squares[lg + 0][col + 1])) {
                         return true;
                     }
-                }else if (direction == Direction.LEFT) {
+                } else if (direction == Direction.LEFT) {
                     if (col - 1 >= 0
                             && squares[lg][col].isMergableDirection(squares[lg + 0][col - 1])) {
                         return true;
                     }
                 }
-                
 
             }
         }
@@ -189,20 +188,22 @@ public final class Board {
     public void move(Direction direction) {
         int dRow = direction.getDeltaRow();
         int dCol = direction.getDeltaCol();
-        if (checkMovableDirection(direction)){
+        if (checkMovableDirection(direction)) {
             if (direction == Direction.UP) {
-            moveUp(dRow, dCol);
-        } else if (direction == Direction.DOWN) {
-            moveDown(dRow, dCol);
-        } else if (direction == Direction.LEFT) {
-            moveLeft(dRow, dCol);
-        } else if (direction == Direction.RIGHT) {
-            moveRight(dRow, dCol);
+                moveUp(dRow, dCol);
+            } else if (direction == Direction.DOWN) {
+                moveDown(dRow, dCol);
+            } else if (direction == Direction.LEFT) {
+                moveLeft(dRow, dCol);
+            } else if (direction == Direction.RIGHT) {
+                moveRight(dRow, dCol);
+            }
+            if (!this.checkFull()) {
+                this.fillRandomSquare();
+            }
+        } else {
+            throw new IllegalArgumentException("Mouvement impossible");//Facultatitf
         }
-        }else{
-            throw new IllegalArgumentException("Mouvement Impossible");
-        }
-        
     }
 
     /**

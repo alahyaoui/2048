@@ -55,43 +55,20 @@ public class Game implements Model {
      */
     @Override
     public void move(Direction direction) {
-        try {
-            if (levelStatus == LevelStatus.IN_PROGRESS) {
-                board.move(direction);
-                board.resetMergedBool();
-            } else {
-                throw new IllegalStateException("La partie n'est pas en cours");
-            }
+        if (levelStatus == LevelStatus.IN_PROGRESS) {
+            board.move(direction);
+            board.resetMergedBool();
             updateStatus();
-        } catch (IllegalArgumentException moveException) {
-            updateStatus2();
-            throw new IllegalArgumentException("Mouvement impossible");
+        } else {
+            throw new IllegalStateException("La partie n'est pas en cours");
         }
     }
 
     /**
-     * Method updateStatus , updates the status of the game.
-     * fill the baord if erverything is okay.
+     * Method updateStatus , updates the status of the game. fill the baord if
+     * erverything is okay.
      */
     private void updateStatus() {
-        if (board.checkWin()) {
-            this.levelStatus = LevelStatus.WIN;
-        } else {
-            if (board.checkFull()) {
-                if (!board.checkMovable()) {
-                    this.levelStatus = LevelStatus.FAIL;
-                }
-            } else {
-                board.fillRandomSquare();
-            }
-        }
-    }
-
-    /**
-     * Method updateStatus2 , updates the status of the game.
-     * Don't fill the board.
-     */
-    private void updateStatus2() {
         if (board.checkWin()) {
             this.levelStatus = LevelStatus.WIN;
         } else {
@@ -130,38 +107,17 @@ public class Game implements Model {
      */
     @Override
     public void change(Direction direction) {
-        int[][] oldBoard = new int[4][4];
-        for (int i = 0; i < this.board.getIntBoard().length; i++) {
-            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
-                oldBoard[i][j] = this.board.getIntBoard()[i][j];
-            }
-        }
-
         move(direction);
-
-        for (int i = 0; i < this.board.getIntBoard().length; i++) {
-            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
-                pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);
-            }
-        }
+        pcs.firePropertyChange("Board",
+                        null, this.board.getIntBoard());
     }
 
     /**
      * Method change , changes the state of the observers
      */
     public void change() {
-        int[][] oldBoard = new int[4][4];
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                oldBoard[i][j] = 1;
-            }
-        }
-
-        for (int i = 0; i < this.board.getIntBoard().length; i++) {
-            for (int j = 0; j < this.board.getIntBoard()[0].length; j++) {
-                pcs.firePropertyChange("Board[" + i + "," + j + "]", oldBoard[i][j], this.board.getIntBoard()[i][j]);
-            }
-        }
+         pcs.firePropertyChange("Board",
+                        null, this.board.getIntBoard());
     }
 
     @Override

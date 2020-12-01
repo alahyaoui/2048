@@ -274,12 +274,6 @@ public class ViewGUI implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (evt.getPropertyName().equals("Board[" + i + "," + j + "]")) {
-                    this.board[i][j] = (int) evt.getNewValue();
-                }
-            }
-        }
+        this.board = (int[][]) evt.getNewValue();
     }
 }
