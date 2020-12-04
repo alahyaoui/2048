@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -552,24 +547,14 @@ public class BoardTest {
         squares[0][3].setValue(2);
         instanceBoard.setSquares(squares);
 
-        instanceBoard.move(direction);
-
-        int expSquare0Result = 4;
-        int square0Result = squares[0][0].getValue();
-
-        int expSquare1Result = 2;
-        int square1Result = squares[0][1].getValue();
-
-        int expSquare2Result = 4;
-        int square2Result = squares[0][2].getValue();
-
-        int expSquare3Result = 2;
-        int square3Result = squares[0][3].getValue();
-
-        assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
-        assertEquals(expSquare2Result, square2Result);
-        assertEquals(expSquare3Result, square3Result);
+        boolean expHasMoved = false;
+        boolean resultHasMoved = true;
+        try{
+            instanceBoard.move(direction);
+        }catch(Exception e){
+            resultHasMoved = false;
+        }
+        assertEquals(expHasMoved, resultHasMoved);
     }
 
 }

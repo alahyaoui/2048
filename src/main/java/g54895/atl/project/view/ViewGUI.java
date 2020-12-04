@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.view;
 
 import g54895.atl.project.controller.ControllerGUI;
@@ -48,9 +43,14 @@ public class ViewGUI implements PropertyChangeListener {
     private TextArea textOutput;
     private Alert alertWindow;
 
+    /**
+     * Constructor of ViewGUI, sets the stage, initialize the root and the scene
+     * and modifies the stage.
+     *
+     * @param stage
+     */
     public ViewGUI(Stage stage) {
         root = new VBox();
-
         scene = new Scene(root, 900, 700, Color.BLACK);
         this.primaryStage = stage;
         this.primaryStage.setMaxWidth(1000);
@@ -61,6 +61,12 @@ public class ViewGUI implements PropertyChangeListener {
         this.primaryStage.setScene(scene);
     }
 
+    /**
+     * Simple setter of the controller, sets the controller, starts the game
+     * initialize the board and add a listener which will fire the game board.
+     *
+     * @param controller a Controller
+     */
     public void setController(ControllerGUI controller) {
         this.controller = controller;
         this.controller.startGame();
@@ -69,12 +75,18 @@ public class ViewGUI implements PropertyChangeListener {
 
     }
 
+    /**
+     * Method showStage, shows the stage.
+     */
     public void showStage() {
         this.primaryStage.show();
     }
 
-    public void initialize() {       
-        //board = new int[4][4];
+    /**
+     * Method initialize, initializes the components and adds the components to
+     * the root.
+     */
+    public void initialize() {
         HBox branch1 = new HBox();
         HBox branch2 = new HBox();
 
@@ -94,7 +106,7 @@ public class ViewGUI implements PropertyChangeListener {
 
         //LEAF*
         leaf1 = new GridPane();
-        createBoard();
+        updateBoard();
         leaf2 = new VBox();
 
         //JTextArea textOutput = new JTextArea();
@@ -155,39 +167,32 @@ public class ViewGUI implements PropertyChangeListener {
         });
     }
 
+    /**
+     * Methode update, updates the board.
+     */
     public void updateBoard() {
-        leaf1.getChildren().removeAll();
-        int count = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                Rectangle tile = new Rectangle(150, 150);
-                tile.setFill(getBackColor(board[i][j]));
-                Text text = new Text(String.valueOf(board[i][j]));                   
-                text.setFont(Font.font(65));
-                text.setFill(getTextColor(board[i][j]));// cause une exception
-                StackPane stackPane = new StackPane(tile, text);
-                leaf1.add(stackPane, j, i);
-                count++;
-            }
-        }
-    }
-
-    public void createBoard() {
         root.requestFocus();
         leaf1.getChildren().removeAll();
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 Rectangle tile = new Rectangle(150, 150);
-                tile.setFill(getBackColor(board[i][j]));              
+                tile.setFill(getBackColor(board[i][j]));
                 Text text = new Text(String.valueOf(board[i][j]));
                 text.setFont(Font.font(65));
-                text.setFill(getTextColor(board[i][j]));                
+                text.setFill(getTextColor(board[i][j]));
                 StackPane stackPane = new StackPane(tile, text);
                 leaf1.add(stackPane, j, i);
             }
         }
     }
 
+    /**
+     * Method getBackColor, gets the backgroung color of the tile, depending on
+     * the value given in parameter.
+     *
+     * @param value an integer.
+     * @return a javaFx Color.
+     */
     public Color getBackColor(int value) {
         switch (value) {
             case 0:
@@ -218,7 +223,14 @@ public class ViewGUI implements PropertyChangeListener {
                 return Color.web("#fcf5ed");
         }
     }
-    
+
+    /**
+     * Method getTextColor, gets the text color of the tile, depending on the
+     * value given in parameter.
+     *
+     * @param value an integer.
+     * @return a javaFx Color.
+     */
     public Color getTextColor(int value) {
         switch (value) {
             case 0:
@@ -226,50 +238,47 @@ public class ViewGUI implements PropertyChangeListener {
             case 2:
                 return Color.web("#262626");
             case 4:
-                return Color.web("#191919");           
+                return Color.web("#191919");
             default:
                 return Color.web("#ffffff");
         }
     }
 
+    /**
+     * Method displayWin, informs the user that he won.
+     */
     public void displayWin() {
-        displayError("YOU HAVE WIN CONGRATS!!!");
+        displayError("Partie est terminée");
+        displayError("Vous avez gagné !!!");
         alertWindow = new Alert(AlertType.NONE);
-
-        // set alert type 
         alertWindow.setAlertType(AlertType.INFORMATION);
-
-        // set content text 
         alertWindow.setContentText("YOU HAVE WIN CONGRATS!!!");
-
-        // show the dialog 
-        alertWindow.show();
-
-    }
-
-    public void displayFail() {
-        displayError("YOU FAILED RETRY!!!");
-        alertWindow = new Alert(AlertType.NONE);
-
-        // set alert type 
-        alertWindow.setAlertType(AlertType.INFORMATION);
-
-        // set content text 
-        alertWindow.setContentText("YOU FAILED RETRY!!!");
-
-        // show the dialog 
         alertWindow.show();
 
     }
 
     /**
-     * Method displayError, displays a message of error
+     * Method displayFail, informs the user that he failed.
+     */
+    public void displayFail() {
+        displayError("Partie est terminée");
+        displayError("Vous avez perdu !!!");
+        alertWindow = new Alert(AlertType.NONE);
+        alertWindow.setAlertType(AlertType.INFORMATION);
+        alertWindow.setContentText("YOU FAILED RETRY!!!");
+        alertWindow.show();
+
+    }
+
+    /**
+     * Method displayError, displays a message in the Application console.
      *
      * @param message a String
      */
     public void displayError(String message) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        textOutput.appendText(LocalDateTime.now().format(formatter) + " - " + message + "\n");
+        textOutput.appendText(LocalDateTime.now().format(formatter) + " - "
+                + message + "\n");
     }
 
     @Override

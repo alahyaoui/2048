@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 /**
@@ -186,45 +181,48 @@ public final class Board {
      * @param direction a Direction
      */
     public void move(Direction direction) {
-        int dRow = direction.getDeltaRow();
-        int dCol = direction.getDeltaCol();
         if (checkMovableDirection(direction)) {
-            if (direction == Direction.UP) {
-                moveUp(dRow, dCol);
-            } else if (direction == Direction.DOWN) {
-                moveDown(dRow, dCol);
-            } else if (direction == Direction.LEFT) {
-                moveLeft(dRow, dCol);
-            } else if (direction == Direction.RIGHT) {
-                moveRight(dRow, dCol);
+            switch (direction) {
+                case UP:
+                    moveUp();
+                    break;
+                case DOWN:
+                    moveDown();
+                    break;
+                case LEFT:
+                    moveLeft();
+                    break;
+                case RIGHT:
+                    moveRight();
+                    break;
+                default:
+                    break;
             }
             if (!this.checkFull()) {
                 this.fillRandomSquare();
             }
         } else {
-            throw new IllegalArgumentException("Mouvement impossible");//Facultatitf
+            throw new IllegalArgumentException("Mouvement impossible");//Facultatitf mais pour afficher "mouvement impossible" dans la console 2048
         }
     }
 
     /**
      * Method moveUp, moves the squares in the north direction.
      *
-     * @param dRow an integer, the deltaRow value of the direction.
-     * @param dCol an integer the deltaColumn value of the direction.
      */
-    private void moveUp(int dRow, int dCol) {
+    private void moveUp() {
         for (int lg = 0; lg < this.squares.length; lg++) {
             for (int col = 0; col < this.squares[0].length; col++) {
-                if (lg + dRow >= 0) {
-                    if ((squares[lg + dRow][col + dCol].getValue() == 0
+                if (lg + -1 >= 0) {
+                    if ((squares[lg + -1][col + 0].getValue() == 0
                             && squares[lg][col].getValue() != 0)) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + -1][col + 0].mergeSquare(squares[lg][col]);
                         lg = 0;
-                    } else if (squares[lg + dRow][col + dCol].getValue()
+                    } else if (squares[lg + -1][col + 0].getValue()
                             == squares[lg][col].getValue()
-                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg + -1][col + 0].getHasMerged()
                             && !squares[lg][col].getHasMerged()) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + -1][col + 0].mergeSquare(squares[lg][col]);
                         lg = 0;
                     }
                 }
@@ -235,22 +233,20 @@ public final class Board {
     /**
      * Method moveDown, moves the squares in the south direction.
      *
-     * @param dRow an integer, the deltaRow value of the direction.
-     * @param dCol an integer the deltaColumn value of the direction.
      */
-    private void moveDown(int dRow, int dCol) {
+    private void moveDown() {
         for (int lg = this.squares.length - 1; lg >= 0; lg--) {
             for (int col = this.squares[0].length - 1; col >= 0; col--) {
-                if (lg + dRow < 4) {
-                    if ((squares[lg + dRow][col + dCol].getValue() == 0
+                if (lg + 1 < 4) {
+                    if ((squares[lg + 1][col + 0].getValue() == 0
                             && squares[lg][col].getValue() != 0)) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 1][col + 0].mergeSquare(squares[lg][col]);
                         lg = 3;
-                    } else if ((squares[lg + dRow][col + dCol].getValue()
+                    } else if ((squares[lg + 1][col + 0].getValue()
                             == squares[lg][col].getValue())
-                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg + 1][col + 0].getHasMerged()
                             && !squares[lg][col].getHasMerged()) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 1][col + 0].mergeSquare(squares[lg][col]);
                         lg = 3;
                     }
                 }
@@ -261,22 +257,22 @@ public final class Board {
     /**
      * Method moveLeft, moves the squares in the west direction.
      *
-     * @param dRow an integer, the deltaRow value of the direction.
-     * @param dCol an integer the deltaColumn value of the direction.
+     * @param d0 an integer, the deltaRow value of the direction.
+     * @param d1 an integer the deltaColumn value of the direction.
      */
-    private void moveLeft(int dRow, int dCol) {
+    private void moveLeft() {
         for (int lg = 0; lg < this.squares.length; lg++) {
             for (int col = 0; col < this.squares[0].length; col++) {
-                if (col + dCol >= 0) {
-                    if ((squares[lg + dRow][col + dCol].getValue() == 0
+                if (col + -1 >= 0) {
+                    if ((squares[lg + 0][col + -1].getValue() == 0
                             && squares[lg][col].getValue() != 0)) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 0][col + -1].mergeSquare(squares[lg][col]);
                         col = 0;
-                    } else if (squares[lg + dRow][col + dCol].getValue()
+                    } else if (squares[lg + 0][col + -1].getValue()
                             == squares[lg][col].getValue()
-                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg + 0][col + -1].getHasMerged()
                             && !squares[lg][col].getHasMerged()) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 0][col + -1].mergeSquare(squares[lg][col]);
                         col = 0;
                     }
                 }
@@ -287,22 +283,22 @@ public final class Board {
     /**
      * Method moveRight, moves the squares in the east direction.
      *
-     * @param dRow an integer, the deltaRow value of the direction.
-     * @param dCol an integer the deltaColumn value of the direction.
+     * @param d0 an integer, the deltaRow value of the direction.
+     * @param d1 an integer the deltaColumn value of the direction.
      */
-    private void moveRight(int dRow, int dCol) {
+    private void moveRight() {
         for (int lg = this.squares.length - 1; lg >= 0; lg--) {
             for (int col = this.squares[0].length - 1; col >= 0; col--) {
-                if (col + dCol < 4) {
-                    if ((squares[lg + dRow][col + dCol].getValue() == 0
+                if (col + 1 < 4) {
+                    if ((squares[lg + 0][col + 1].getValue() == 0
                             && squares[lg][col].getValue() != 0)) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 0][col + 1].mergeSquare(squares[lg][col]);
                         col = 3;
-                    } else if ((squares[lg + dRow][col + dCol].getValue()
+                    } else if ((squares[lg + 0][col + 1].getValue()
                             == squares[lg][col].getValue())
-                            && !squares[lg + dRow][col + dCol].getHasMerged()
+                            && !squares[lg + 0][col + 1].getHasMerged()
                             && !squares[lg][col].getHasMerged()) {
-                        squares[lg + dRow][col + dCol].mergeSquare(squares[lg][col]);
+                        squares[lg + 0][col + 1].mergeSquare(squares[lg][col]);
                         col = 3;
                     }
                 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.main;
 
 import g54895.atl.project.controller.ControllerGUI;
@@ -12,7 +7,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- *
+ * The GUI main of the 2048 project.
+ * 
  * @author Ayoub
  */
 public class MainGUI extends Application {

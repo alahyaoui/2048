@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 import java.beans.PropertyChangeListener;
@@ -48,8 +43,16 @@ public interface Model {
      */
     public Board getBoard();
     
+    /**
+     * Method change , changes the state of the observers
+     *
+     * @param direction a Direction
+     */
     public void change(Direction direction);
 
+    /**
+     * Method change , changes the state of the observers
+     */
     public void change();
 
     public void addPropertyChangeListener(PropertyChangeListener listener);

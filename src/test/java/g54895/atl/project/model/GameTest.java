@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class GameTest {
 
-    Game instanceGame;//= new Game();
+    Game instanceGame = new Game();
 
-    @BeforeEach
+    /*@BeforeEach
     public void setUp() {
-        instanceGame = new Game();
+        //instanceGame = new Game();
         instanceGame.startParty();
-    }
+    }*/
 
     /**
      * Test of startParty method, of class Game.
@@ -144,8 +139,8 @@ public class GameTest {
         instanceBoard.setSquares(squares);
 
         instanceGame.getBoard().setSquares(squares);
-        instanceGame.move(Direction.DOWN);
-
+        instanceGame.updateStatus();
+        
         LevelStatus expLvlStatusResult = LevelStatus.FAIL;
         LevelStatus lvlStatusResult = instanceGame.getLevelStatus();
         assertEquals(expLvlStatusResult, lvlStatusResult);

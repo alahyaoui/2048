@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.controller;
 
 import g54895.atl.project.model.Direction;
@@ -13,7 +8,8 @@ import java.beans.PropertyChangeListener;
 import java.util.Objects;
 
 /**
- *
+ * The GUI controller part of the MVC structure.
+ * 
  * @author Ayoub
  */
 public class ControllerGUI {
@@ -59,11 +55,15 @@ public class ControllerGUI {
         }
     }
 
+    /**
+     * Method tryRestart, tries to restart the game.
+     */
     public void tryRestart() { 
         try {
             game.restartParty();
             game.change();
-            view.createBoard();
+            view.updateBoard();
+            view.displayError("Partie recommencée");
         } catch (IllegalArgumentException e) {
             view.displayError("Restart impossible !!!");
         }
@@ -92,6 +92,11 @@ public class ControllerGUI {
         }
     }
 
+    /**
+     * Method addModelListener, adds a listener to the listenable and 
+     * immediately fire to him.
+     * @param listener a PropertyChangeListener.
+     */
     public void addModelListener(PropertyChangeListener listener) {
         game.addPropertyChangeListener(listener);
         game.change();

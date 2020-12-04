@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 import java.beans.PropertyChangeListener;
@@ -65,10 +60,9 @@ public class Game implements Model {
     }
 
     /**
-     * Method updateStatus , updates the status of the game. fill the baord if
-     * erverything is okay.
+     * Method updateStatus , updates the status of the game.
      */
-    private void updateStatus() {
+    void updateStatus() {
         if (board.checkWin()) {
             this.levelStatus = LevelStatus.WIN;
         } else {
@@ -103,21 +97,21 @@ public class Game implements Model {
     /**
      * Method change , changes the state of the observers
      *
-     * @param direction
+     * @param direction a Direction
      */
     @Override
     public void change(Direction direction) {
         move(direction);
         pcs.firePropertyChange("Board",
-                        null, this.board.getIntBoard());
+                null, this.board.getIntBoard());
     }
 
     /**
      * Method change , changes the state of the observers
      */
     public void change() {
-         pcs.firePropertyChange("Board",
-                        null, this.board.getIntBoard());
+        pcs.firePropertyChange("Board",
+                null, this.board.getIntBoard());
     }
 
     @Override

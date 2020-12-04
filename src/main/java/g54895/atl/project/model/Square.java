@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package g54895.atl.project.model;
 
 /**
@@ -87,10 +82,7 @@ public class Square {
      * @return a boolean true if mergable false otherwise.
      */
     public boolean isMergable(Square square) {
-        if (this.value == square.value) {
-            return true;
-        }
-        return false;
+        return this.value == square.value;       
     }
 
      /**
