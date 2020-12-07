@@ -33,9 +33,9 @@ import javafx.scene.text.TextAlignment;
 public class ViewGUI implements PropertyChangeListener {
 
     private ControllerGUI controller;
-    private Stage primaryStage;
-    private Scene scene;
-    private VBox root;
+    private final Stage primaryStage;
+    private final Scene scene;
+    private final VBox root;
     private GridPane leaf1;
     private VBox leaf2;
 
@@ -252,7 +252,7 @@ public class ViewGUI implements PropertyChangeListener {
         displayError("Vous avez gagné !!!");
         alertWindow = new Alert(AlertType.NONE);
         alertWindow.setAlertType(AlertType.INFORMATION);
-        alertWindow.setContentText("YOU HAVE WIN CONGRATS!!!");
+        alertWindow.setContentText("YOU HAVE WON CONGRATS!!!");
         alertWindow.show();
 
     }

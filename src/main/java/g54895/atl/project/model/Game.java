@@ -119,6 +119,7 @@ public class Game implements Model {
     /**
      * Method change , changes the state of the observers
      */
+    @Override
     public void change() {
         pcs.firePropertyChange("Board",
                 null, this.board.getIntBoard());

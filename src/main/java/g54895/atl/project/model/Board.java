@@ -8,7 +8,7 @@ package g54895.atl.project.model;
  */
 public final class Board {
 
-    private Square[][] squares;
+    private final Square[][] squares;
 
     /**
      * Simple constructor of Board.
