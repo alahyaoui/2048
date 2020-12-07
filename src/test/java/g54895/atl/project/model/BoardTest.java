@@ -97,7 +97,7 @@ public class BoardTest {
      * Test of move method, of class Board.
      */
     @Test
-    public void testMoveGeneralUp() {
+    public void testMoveGeneraUp() {
         System.out.println("Test Move General Up");
         Direction direction = Direction.UP;
         Board instanceBoard = new Board();
@@ -114,10 +114,10 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
-        int square0Result = squares[0][0].getValue();
+        int square0Result = instanceBoard.getSquares()[0][0].getValue();
 
         int expSquare1Result = 2;
-        int square1Result = squares[0][2].getValue();
+        int square1Result = instanceBoard.getSquares()[0][2].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -127,7 +127,7 @@ public class BoardTest {
      * Test of move method, of class Board.
      */
     @Test
-    public void testMoveGeneralLeft() {
+    public void testMoveGeneraLeft() {
         System.out.println("Test Move General Left");
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();
@@ -145,10 +145,10 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
-        int square0Result = squares[0][0].getValue();
+        int square0Result = instanceBoard.getSquares()[0][0].getValue();
 
         int expSquare1Result = 2;
-        int square1Result = squares[2][0].getValue();
+        int square1Result = instanceBoard.getSquares()[2][0].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -158,7 +158,7 @@ public class BoardTest {
      * Test of move method, of class Board.
      */
     @Test
-    public void testMoveGeneralDown() {
+    public void testMoveGeneraDown() {
         System.out.println("Test Move General Down");
         Direction direction = Direction.DOWN;
         Board instanceBoard = new Board();
@@ -176,10 +176,10 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
-        int square0Result = squares[3][0].getValue();
+        int square0Result = instanceBoard.getSquares()[3][0].getValue();
 
         int expSquare1Result = 2;
-        int square1Result = squares[3][2].getValue();
+        int square1Result = instanceBoard.getSquares()[3][2].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -189,8 +189,8 @@ public class BoardTest {
      * Test of move method, of class Board.
      */
     @Test
-    public void testMoveGeneralRight() {
-        System.out.println("Test Move General 4");
+    public void testMoveGeneraRight() {
+        System.out.println("Test Move General Right");
         Direction direction = Direction.RIGHT;
         Board instanceBoard = new Board();
 
@@ -207,10 +207,10 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 2;
-        int square0Result = squares[0][3].getValue();
+        int square0Result = instanceBoard.getSquares()[0][3].getValue();
 
         int expSquare1Result = 2;
-        int square1Result = squares[2][3].getValue();
+        int square1Result = instanceBoard.getSquares()[2][3].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -238,21 +238,13 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
-        int square0Result = squares[0][0].getValue();
+        int square0Result = instanceBoard.getSquares()[0][0].getValue();
 
         int expSquare1Result = 4;
-        int square1Result = squares[1][0].getValue();
-
-        int expSquare2Result = 0;
-        int square2Result = squares[2][0].getValue();
-
-        int expSquare3Result = 0;
-        int square3Result = squares[3][0].getValue();
+        int square1Result = instanceBoard.getSquares()[1][0].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
-        assertEquals(expSquare2Result, square2Result);
-        assertEquals(expSquare3Result, square3Result);
     }
 
     /**
@@ -277,21 +269,13 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
-        int square0Result = squares[0][1].getValue();
+        int square0Result = instanceBoard.getSquares()[0][1].getValue();
 
         int expSquare1Result = 4;
-        int square1Result = squares[1][1].getValue();
-
-        int expSquare2Result = 0;
-        int square2Result = squares[2][1].getValue();
-
-        int expSquare3Result = 0;
-        int square3Result = squares[3][1].getValue();
+        int square1Result = instanceBoard.getSquares()[1][1].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
-        assertEquals(expSquare2Result, square2Result);
-        assertEquals(expSquare3Result, square3Result);
     }
 
     /**
@@ -315,20 +299,12 @@ public class BoardTest {
 
         instanceBoard.move(direction);
 
-        int expSquare0Result = 0;
-        int square0Result = squares[0][0].getValue();
-
-        int expSquare1Result = 0;
-        int square1Result = squares[1][0].getValue();
-
         int expSquare2Result = 4;
-        int square2Result = squares[2][0].getValue();
+        int square2Result = instanceBoard.getSquares()[2][0].getValue();
 
         int expSquare3Result = 8;
-        int square3Result = squares[3][0].getValue();
+        int square3Result = instanceBoard.getSquares()[3][0].getValue();
 
-        assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
         assertEquals(expSquare2Result, square2Result);
         assertEquals(expSquare3Result, square3Result);
     }
@@ -354,20 +330,12 @@ public class BoardTest {
 
         instanceBoard.move(direction);
 
-        int expSquare0Result = 0;
-        int square0Result = squares[0][1].getValue();
-
-        int expSquare1Result = 0;
-        int square1Result = squares[1][1].getValue();
-
         int expSquare2Result = 4;
-        int square2Result = squares[2][1].getValue();
+        int square2Result = instanceBoard.getSquares()[2][1].getValue();
 
         int expSquare3Result = 8;
-        int square3Result = squares[3][1].getValue();
+        int square3Result = instanceBoard.getSquares()[3][1].getValue();
 
-        assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
         assertEquals(expSquare2Result, square2Result);
         assertEquals(expSquare3Result, square3Result);
     }
@@ -394,21 +362,13 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
-        int square0Result = squares[0][0].getValue();
+        int square0Result = instanceBoard.getSquares()[0][0].getValue();
 
         int expSquare1Result = 4;
-        int square1Result = squares[0][1].getValue();
-
-        int expSquare2Result = 0;
-        int square2Result = squares[0][2].getValue();
-
-        int expSquare3Result = 0;
-        int square3Result = squares[0][3].getValue();
+        int square1Result = instanceBoard.getSquares()[0][1].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
-        assertEquals(expSquare2Result, square2Result);
-        assertEquals(expSquare3Result, square3Result);
     }
 
     /**
@@ -433,21 +393,13 @@ public class BoardTest {
         instanceBoard.move(direction);
 
         int expSquare0Result = 8;
-        int square0Result = squares[1][0].getValue();
+        int square0Result = instanceBoard.getSquares()[1][0].getValue();
 
         int expSquare1Result = 4;
-        int square1Result = squares[1][1].getValue();
-
-        int expSquare2Result = 0;
-        int square2Result = squares[1][2].getValue();
-
-        int expSquare3Result = 0;
-        int square3Result = squares[1][3].getValue();
+        int square1Result = instanceBoard.getSquares()[1][1].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
-        assertEquals(expSquare2Result, square2Result);
-        assertEquals(expSquare3Result, square3Result);
     }
 
     /**
@@ -471,20 +423,12 @@ public class BoardTest {
 
         instanceBoard.move(direction);
 
-        int expSquare0Result = 0;
-        int square0Result = squares[0][0].getValue();
-
-        int expSquare1Result = 0;
-        int square1Result = squares[0][1].getValue();
-
         int expSquare2Result = 4;
-        int square2Result = squares[0][2].getValue();
+        int square2Result = instanceBoard.getSquares()[0][2].getValue();
 
         int expSquare3Result = 8;
-        int square3Result = squares[0][3].getValue();
+        int square3Result = instanceBoard.getSquares()[0][3].getValue();
 
-        assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
         assertEquals(expSquare2Result, square2Result);
         assertEquals(expSquare3Result, square3Result);
     }
@@ -510,20 +454,12 @@ public class BoardTest {
 
         instanceBoard.move(direction);
 
-        int expSquare0Result = 0;
-        int square0Result = squares[1][0].getValue();
-
-        int expSquare1Result = 0;
-        int square1Result = squares[1][1].getValue();
-
         int expSquare2Result = 4;
-        int square2Result = squares[1][2].getValue();
+        int square2Result = instanceBoard.getSquares()[1][2].getValue();
 
         int expSquare3Result = 8;
-        int square3Result = squares[1][3].getValue();
+        int square3Result = instanceBoard.getSquares()[1][3].getValue();
 
-        assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
         assertEquals(expSquare2Result, square2Result);
         assertEquals(expSquare3Result, square3Result);
     }
@@ -532,7 +468,7 @@ public class BoardTest {
      * Test of move method, of class Board.
      */
     @Test
-    public void testDontMoveLeft1() {
+    public void testDontMoveLeft() {
         System.out.println("Test Dont Move Left 1 and don't merge any square");
         Direction direction = Direction.LEFT;
         Board instanceBoard = new Board();

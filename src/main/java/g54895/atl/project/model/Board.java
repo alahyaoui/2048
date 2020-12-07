@@ -10,9 +10,20 @@ public final class Board {
 
     private Square[][] squares;
 
+    /**
+     * Simple constructor of Board.
+     */
     public Board() {
         this.squares = new Square[4][4];
         initBoard();
+    }
+    
+    /**
+     * Copy constructor of board.
+     * @param board 
+     */
+    public Board(Board board) {
+        this.squares = board.getSquares();
     }
 
     /**
@@ -307,12 +318,19 @@ public final class Board {
     }
 
     /**
-     * Simple getter of squares.
+     * Simple getter of squares (Method for the tests),
+     * return the copy of squares.
      *
      * @param squares an array of Squares.
      */
     Square[][] getSquares() {
-        return squares;
+        Square[][] copyOfSquares = new Square[this.squares.length][this.squares[0].length];
+        for(int i = 0; i < this.squares.length; i++){
+            for(int j = 0; j < this.squares[0].length; j++){
+                copyOfSquares[i][j] = new Square(this.squares[i][j]);
+            }
+        }
+        return copyOfSquares;
     }
 
     /**
@@ -321,7 +339,11 @@ public final class Board {
      * @param squares an array of Squares.
      */
     void setSquares(Square[][] squares) {
-        this.squares = squares;
+        for(int i = 0; i < squares.length; i++){
+            for(int j = 0; j < squares[0].length; j++){
+                this.squares[i][j] = new Square(squares[i][j]);
+            }
+        }
     }
 
     /**

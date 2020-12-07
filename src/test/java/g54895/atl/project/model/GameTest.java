@@ -61,14 +61,15 @@ public class GameTest {
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
-        instanceGame.getBoard().setSquares(squares);
+       
+        instanceGame.setBoard(instanceBoard);
         instanceGame.move(direction);
 
         int expSquare0Result = 2;
-        int square0Result = squares[0][0].getValue();
+        int square0Result = instanceGame.getBoard().getSquares()[0][0].getValue();
 
         int expSquare1Result = 2;
-        int square1Result = squares[0][2].getValue();
+        int square1Result = instanceGame.getBoard().getSquares()[0][2].getValue();
 
         assertEquals(expSquare0Result, square0Result);
         assertEquals(expSquare1Result, square1Result);
@@ -94,7 +95,7 @@ public class GameTest {
         squares[2][2].setValue(2);
         instanceBoard.setSquares(squares);
 
-        instanceGame.getBoard().setSquares(squares);
+        instanceGame.setBoard(instanceBoard);
         instanceGame.move(Direction.DOWN);
 
         LevelStatus expLvlStatusResult = LevelStatus.WIN;
@@ -138,7 +139,7 @@ public class GameTest {
         }
         instanceBoard.setSquares(squares);
 
-        instanceGame.getBoard().setSquares(squares);
+        instanceGame.setBoard(instanceBoard);
         instanceGame.updateStatus();
         
         LevelStatus expLvlStatusResult = LevelStatus.FAIL;

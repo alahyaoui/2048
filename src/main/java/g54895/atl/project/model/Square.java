@@ -19,6 +19,14 @@ public class Square {
         this.value = 0;
         hasMerged = false;
     }
+    
+    /**
+     * Copy constructor of square.
+     */
+    public Square(Square square) {
+        this.value = square.value;
+        hasMerged = square.hasMerged;
+    }
 
     /**
      * Simple getter of value.

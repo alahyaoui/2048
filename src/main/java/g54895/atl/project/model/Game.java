@@ -1,5 +1,6 @@
 package g54895.atl.project.model;
 
+import g54895.atl.project.model.Board;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
@@ -75,15 +76,24 @@ public class Game implements Model {
     }
 
     /**
-     * Simple getter of Board
+     * Simple getter of a copy of Board.
      *
      * @return board a Board.
      */
     @Override
     public Board getBoard() {
-        return board;
+        return new Board(board);
     }
 
+    /**
+     * Simple setter of board.
+     * 
+     * @param board a Board
+     */
+    void setBoard(Board board) {
+        this.board = new Board(board);
+    }
+    
     /**
      * Simple getter of LevelStatus.
      *
