@@ -12,11 +12,11 @@ public class GameTest {
 
     Game instanceGame = new Game();
 
-    /*@BeforeEach
+    @BeforeEach
     public void setUp() {
         //instanceGame = new Game();
         instanceGame.startParty();
-    }*/
+    }
 
     /**
      * Test of startParty method, of class Game.
@@ -36,10 +36,33 @@ public class GameTest {
     @Test
     public void testRestartParty() {
         System.out.println("restartParty");
+        instanceGame.startParty();
+        Board instanceBoard = new Board();
+
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
+
+        squares[0][0].setValue(2048);
+        instanceBoard.setSquares(squares);
+        instanceGame.setBoard(instanceBoard);
+        
+        instanceGame.updateStatus();
+        
+        LevelStatus expLevelStatus = LevelStatus.WIN;
+        LevelStatus resLevelStatus = instanceGame.getLevelStatus();
+        
+        assertEquals(expLevelStatus, resLevelStatus);
+        
         instanceGame.restartParty();
+        
+        expLevelStatus = LevelStatus.IN_PROGRESS;
+        resLevelStatus = instanceGame.getLevelStatus();
 
         assertNotNull(instanceGame.getBoard());
-        assertEquals(instanceGame.getLevelStatus(), LevelStatus.IN_PROGRESS);
+        assertEquals(expLevelStatus, resLevelStatus);
     }
 
     /**
@@ -49,9 +72,8 @@ public class GameTest {
     public void testMove() {
         System.out.println("move");
         Direction direction = Direction.UP;
-
+        instanceGame.startParty();
         Board instanceBoard = new Board();
-
         Square[][] squares
                 = {{new Square(), new Square(), new Square(), new Square()},
                 {new Square(), new Square(), new Square(), new Square()},
@@ -59,20 +81,16 @@ public class GameTest {
                 {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
-        squares[2][2].setValue(2);
+        squares[1][0].setValue(2);
         instanceBoard.setSquares(squares);
-       
+
         instanceGame.setBoard(instanceBoard);
         instanceGame.move(direction);
 
-        int expSquare0Result = 2;
+        int expSquare0Result = 4;
         int square0Result = instanceGame.getBoard().getSquares()[0][0].getValue();
 
-        int expSquare1Result = 2;
-        int square1Result = instanceGame.getBoard().getSquares()[0][2].getValue();
-
         assertEquals(expSquare0Result, square0Result);
-        assertEquals(expSquare1Result, square1Result);
     }
 
     /**
@@ -141,7 +159,7 @@ public class GameTest {
 
         instanceGame.setBoard(instanceBoard);
         instanceGame.updateStatus();
-        
+
         LevelStatus expLvlStatusResult = LevelStatus.FAIL;
         LevelStatus lvlStatusResult = instanceGame.getLevelStatus();
         assertEquals(expLvlStatusResult, lvlStatusResult);
