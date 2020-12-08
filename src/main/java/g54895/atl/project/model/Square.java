@@ -19,7 +19,7 @@ public class Square {
         this.value = 0;
         hasMerged = false;
     }
-    
+
     /**
      * Copy constructor of square.
      */
@@ -90,25 +90,27 @@ public class Square {
      * @return a boolean true if mergable false otherwise.
      */
     public boolean isMergable(Square square) {
-        return this.value == square.value;       
+        return this.value == square.value;
     }
 
-     /**
-     * Method isMergableDirection, checks if the square is mergable
-     * with another square and if it can actually move.
+    /**
+     * Method isMergableDirection, checks if the square is mergable with another
+     * square and if it can actually move.
      *
      * @param square a Square
      * @return a boolean true if mergable false otherwise.
      */
     public boolean isMergableDirection(Square square) {
-        if(this.value != 0)
-        if (this.value == square.value) {
-            return true;
-        }else if(square.value == 0)
-            return true;
+        if (this.value != 0) {
+            if (this.value == square.value) {
+                return true;
+            } else if (square.value == 0) {
+                return true;
+            }
+        }
         return false;
     }
-    
+
     /**
      * Method resetMerged , reset the value of hasMerged at null.
      */

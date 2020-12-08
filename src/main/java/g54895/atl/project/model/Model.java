@@ -42,7 +42,7 @@ public interface Model {
      * @return levelStatus a LevelStatus.
      */
     public Board getBoard();
-    
+
     /**
      * Method change , changes the state of the observers
      *

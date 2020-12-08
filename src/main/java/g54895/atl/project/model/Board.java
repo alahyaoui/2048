@@ -1,5 +1,7 @@
 package g54895.atl.project.model;
 
+import java.util.Random;
+
 /**
  * Board of the game. Board is made of squares, the squares attribute of the
  * board is made of an 4x4 array of square.
@@ -17,10 +19,11 @@ public final class Board {
         this.squares = new Square[4][4];
         initBoard();
     }
-    
+
     /**
      * Copy constructor of board.
-     * @param board 
+     *
+     * @param board
      */
     public Board(Board board) {
         this.squares = board.getSquares();
@@ -55,12 +58,12 @@ public final class Board {
      * Method fillRandomSquare, fill randomly one of the square of the board
      * with either 2 or 4.
      */
-    public void fillRandomSquare() {
-        int randLg = pickRandom(4, 0);
-        int randCol = pickRandom(4, 0);
+    private void fillRandomSquare() {
+        int randLg = pickRandom();//(4, 0);
+        int randCol = pickRandom();//(4, 0);
         while (this.squares[randLg][randCol].getValue() != 0) {
-            randLg = pickRandom(4, 0);
-            randCol = pickRandom(4, 0);
+            randLg = pickRandom();//(4, 0);
+            randCol = pickRandom();//(4, 0);
         }
         this.squares[randLg][randCol].setValue(randValue());
     }
@@ -73,8 +76,9 @@ public final class Board {
      * @param min an integer
      * @return a random integer.
      */
-    private int pickRandom(int max, int min) {
-        return (int) (Math.random() * (max - min));
+    private int pickRandom(/*int max, int min*/) {
+        Random rand = new Random();
+        return rand.nextInt(4);
     }
 
     /**
@@ -127,7 +131,7 @@ public final class Board {
      *
      * @return true if movable false otherwise.
      */
-    public boolean checkMovableDirection(Direction direction) {
+    private boolean checkMovableDirection(Direction direction) {
         for (int lg = 0; lg < this.squares.length; lg++) {
             for (int col = 0; col < this.squares[0].length; col++) {
                 if (direction == Direction.UP) {
@@ -213,7 +217,8 @@ public final class Board {
                 this.fillRandomSquare();
             }
         } else {
-            throw new IllegalArgumentException("Mouvement impossible");//Facultatitf mais pour afficher "mouvement impossible" dans la console 2048
+            throw new IllegalArgumentException("Mouvement impossible");
+            //Facultatitf mais pour afficher "mouvement impossible" dans la console 2048
         }
     }
 
@@ -318,15 +323,16 @@ public final class Board {
     }
 
     /**
-     * Simple getter of squares (Method for the tests),
-     * return the copy of squares.
+     * Simple getter of squares (Method for the tests), return the copy of
+     * squares.
      *
      * @param squares an array of Squares.
      */
     Square[][] getSquares() {
-        Square[][] copyOfSquares = new Square[this.squares.length][this.squares[0].length];
-        for(int i = 0; i < this.squares.length; i++){
-            for(int j = 0; j < this.squares[0].length; j++){
+        Square[][] copyOfSquares
+                = new Square[this.squares.length][this.squares[0].length];
+        for (int i = 0; i < this.squares.length; i++) {
+            for (int j = 0; j < this.squares[0].length; j++) {
                 copyOfSquares[i][j] = new Square(this.squares[i][j]);
             }
         }
@@ -339,8 +345,8 @@ public final class Board {
      * @param squares an array of Squares.
      */
     void setSquares(Square[][] squares) {
-        for(int i = 0; i < squares.length; i++){
-            for(int j = 0; j < squares[0].length; j++){
+        for (int i = 0; i < squares.length; i++) {
+            for (int j = 0; j < squares[0].length; j++) {
                 this.squares[i][j] = new Square(squares[i][j]);
             }
         }

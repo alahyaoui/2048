@@ -50,7 +50,7 @@ public class Game implements Model {
      * @param direction a Direction
      */
     @Override
-    public void move(Direction direction) {
+    public void move(Direction direction) {//Méthode publique à cause du main Console.
         if (levelStatus == LevelStatus.IN_PROGRESS) {
             board.move(direction);
             board.resetMergedBool();
@@ -82,18 +82,18 @@ public class Game implements Model {
      */
     @Override
     public Board getBoard() {
-        return new Board(board);
+        return board;
     }
 
     /**
      * Simple setter of board.
-     * 
+     *
      * @param board a Board
      */
     void setBoard(Board board) {
         this.board = new Board(board);
     }
-    
+
     /**
      * Simple getter of LevelStatus.
      *
@@ -107,7 +107,7 @@ public class Game implements Model {
     /**
      * Method change , changes the state of the observers
      *
-     * @param direction a Direction
+     * @param direction a Direction.
      */
     @Override
     public void change(Direction direction) {

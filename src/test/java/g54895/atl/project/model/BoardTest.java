@@ -70,10 +70,11 @@ public class BoardTest {
         boolean expResult = false;
         boolean result = instanceBoard.checkFull();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         int nb = 2;
 
@@ -102,10 +103,11 @@ public class BoardTest {
         Direction direction = Direction.UP;
         Board instanceBoard = new Board();
 
-        Square[][] squares = {{new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()},
-        {new Square(), new Square(), new Square(), new Square()}};
+        Square[][] squares
+                = {{new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()},
+                {new Square(), new Square(), new Square(), new Square()}};
 
         squares[0][0].setValue(2);
         squares[2][2].setValue(2);
@@ -485,9 +487,9 @@ public class BoardTest {
 
         boolean expHasMoved = false;
         boolean resultHasMoved = true;
-        try{
+        try {
             instanceBoard.move(direction);
-        }catch(Exception e){
+        } catch (Exception e) {
             resultHasMoved = false;
         }
         assertEquals(expHasMoved, resultHasMoved);

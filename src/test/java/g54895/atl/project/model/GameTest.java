@@ -25,7 +25,6 @@ public class GameTest {
     public void testStartParty() {
         System.out.println("startParty");
         instanceGame.startParty();
-
         assertNotNull(instanceGame.getBoard());
         assertEquals(instanceGame.getLevelStatus(), LevelStatus.IN_PROGRESS);
     }
@@ -48,16 +47,16 @@ public class GameTest {
         squares[0][0].setValue(2048);
         instanceBoard.setSquares(squares);
         instanceGame.setBoard(instanceBoard);
-        
+
         instanceGame.updateStatus();
-        
+
         LevelStatus expLevelStatus = LevelStatus.WIN;
         LevelStatus resLevelStatus = instanceGame.getLevelStatus();
-        
+
         assertEquals(expLevelStatus, resLevelStatus);
-        
+
         instanceGame.restartParty();
-        
+
         expLevelStatus = LevelStatus.IN_PROGRESS;
         resLevelStatus = instanceGame.getLevelStatus();
 
@@ -88,8 +87,8 @@ public class GameTest {
         instanceGame.move(direction);
 
         int expSquare0Result = 4;
-        int square0Result = instanceGame.getBoard().getSquares()[0][0].getValue();
-
+        int square0Result
+                = instanceGame.getBoard().getSquares()[0][0].getValue();
         assertEquals(expSquare0Result, square0Result);
     }
 
