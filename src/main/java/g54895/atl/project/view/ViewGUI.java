@@ -27,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.TextAlignment;
 
 /**
+ * The GUI View part of the MVC structure.
  *
  * @author Ayoub
  */
@@ -198,7 +199,7 @@ public class ViewGUI implements PropertyChangeListener {
             case 0:
                 return Color.web("#fcf5ed");
             case 2:
-                return Color.web("#f9f1e4");
+                return Color.web("#fcf5ed");
             case 4:
                 return Color.web("#f9e8d5");
             case 8:
