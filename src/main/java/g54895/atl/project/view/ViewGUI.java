@@ -174,14 +174,17 @@ public class ViewGUI implements PropertyChangeListener {
     public void updateBoard() {
         root.requestFocus();
         leaf1.getChildren().removeAll();
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
                 Rectangle tile = new Rectangle(150, 150);
+                tile.setArcWidth(10.0); 
+                tile.setArcHeight(10.0); 
                 tile.setFill(getBackColor(board[i][j]));
                 Text text = new Text(String.valueOf(board[i][j]));
                 text.setFont(Font.font(65));
                 text.setFill(getTextColor(board[i][j]));
                 StackPane stackPane = new StackPane(tile, text);
+                stackPane.setPadding(new Insets(5));
                 leaf1.add(stackPane, j, i);
             }
         }
