@@ -73,7 +73,7 @@ public class ViewGUI implements PropertyChangeListener {
         this.controller.startGame();
         board = new int[4][4];
         this.controller.addModelListener(this);
-
+        
     }
 
     /**
