@@ -116,7 +116,7 @@ public class ViewGUI implements PropertyChangeListener {
         displayMessage("Bienvenue au 2048");
         textOutput.setEditable(false);
         textOutput.setDisable(true);
-        textOutput.setPrefHeight(600);
+        textOutput.setPrefHeight(630);
         leaf2.getChildren().addAll(textOutput);
         leaf2.setAlignment(Pos.CENTER);
 
