@@ -4,6 +4,7 @@ import g54895.atl.project.controller.ControllerGUI;
 import g54895.atl.project.model.Direction;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javafx.event.EventHandler;
@@ -24,6 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.text.TextAlignment;
 
 /**
@@ -59,6 +61,8 @@ public class ViewGUI implements PropertyChangeListener {
         this.primaryStage.setMinWidth(1000);
         this.primaryStage.setMinHeight(800);
         this.primaryStage.setTitle("2048");
+        Image logo = new Image(getClass().getClassLoader().getResourceAsStream("images/2048_logo_1.png"));
+        this.primaryStage.getIcons().add(logo);
         this.primaryStage.setScene(scene);
     }
 
