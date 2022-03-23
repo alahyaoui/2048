@@ -73,7 +73,7 @@ public class ViewGUI implements PropertyChangeListener {
         this.controller.startGame();
         board = new int[4][4];
         this.controller.addModelListener(this);
-        
+
     }
 
     /**
@@ -177,8 +177,8 @@ public class ViewGUI implements PropertyChangeListener {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 Rectangle tile = new Rectangle(150, 150);
-                tile.setArcWidth(10.0); 
-                tile.setArcHeight(10.0); 
+                tile.setArcWidth(10.0);
+                tile.setArcHeight(10.0);
                 tile.setFill(getBackColor(board[i][j]));
                 Text text = new Text(String.valueOf(board[i][j]));
                 text.setFont(Font.font(65));
