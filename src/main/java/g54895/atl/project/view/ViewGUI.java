@@ -55,9 +55,9 @@ public class ViewGUI implements PropertyChangeListener {
         scene = new Scene(root, 900, 700, Color.BLACK);
         this.primaryStage = stage;
         this.primaryStage.setMaxWidth(1000);
-        this.primaryStage.setMaxHeight(750);
+        this.primaryStage.setMaxHeight(800);
         this.primaryStage.setMinWidth(1000);
-        this.primaryStage.setMinHeight(750);
+        this.primaryStage.setMinHeight(800);
         this.primaryStage.setTitle("2048");
         this.primaryStage.setScene(scene);
     }
