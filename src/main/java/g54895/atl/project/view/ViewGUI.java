@@ -61,7 +61,7 @@ public class ViewGUI implements PropertyChangeListener {
         this.primaryStage.setMinWidth(1000);
         this.primaryStage.setMinHeight(800);
         this.primaryStage.setTitle("2048");
-        Image logo = new Image(getClass().getClassLoader().getResourceAsStream("images/2048_logo_1.png"));
+        Image logo = new Image(getClass().getClassLoader().getResourceAsStream("images/2048_logo.png"));
         this.primaryStage.getIcons().add(logo);
         this.primaryStage.setScene(scene);
     }
