@@ -113,7 +113,7 @@ public class ViewGUI implements PropertyChangeListener {
         //JTextArea textOutput = new JTextArea();
         //textOutput.setEditable(false);
         textOutput = new TextArea();
-        displayError("Bienvenue au 2048");
+        displayMessage("Bienvenue au 2048");
         textOutput.setEditable(false);
         textOutput.setDisable(true);
         textOutput.setPrefHeight(600);
@@ -249,8 +249,8 @@ public class ViewGUI implements PropertyChangeListener {
      * Method displayWin, informs the user that he won.
      */
     public void displayWin() {
-        displayError("Partie est terminée");
-        displayError("Vous avez gagné !!!");
+        displayMessage("Partie est terminée");
+        displayMessage("Vous avez gagné !!!");
         alertWindow = new Alert(AlertType.NONE);
         alertWindow.setAlertType(AlertType.INFORMATION);
         alertWindow.setContentText("YOU HAVE WON CONGRATS!!!");
@@ -262,8 +262,8 @@ public class ViewGUI implements PropertyChangeListener {
      * Method displayFail, informs the user that he failed.
      */
     public void displayFail() {
-        displayError("Partie est terminée");
-        displayError("Vous avez perdu !!!");
+        displayMessage("Partie est terminée");
+        displayMessage("Vous avez perdu !!!");
         alertWindow = new Alert(AlertType.NONE);
         alertWindow.setAlertType(AlertType.INFORMATION);
         alertWindow.setContentText("YOU FAILED RETRY!!!");
@@ -276,7 +276,7 @@ public class ViewGUI implements PropertyChangeListener {
      *
      * @param message a String
      */
-    public void displayError(String message) {
+    public void displayMessage(String message) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         textOutput.appendText(LocalDateTime.now().format(formatter) + " - "
                 + message + "\n");

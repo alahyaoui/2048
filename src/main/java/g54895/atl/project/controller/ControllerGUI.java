@@ -63,9 +63,9 @@ public class ControllerGUI {
             game.restartParty();
             game.change();
             view.updateBoard();
-            view.displayError("Partie recommencée");
+            view.displayMessage("Partie recommencée");
         } catch (IllegalArgumentException e) {
-            view.displayError("Restart impossible !!!");
+            view.displayMessage("Restart impossible !!!");
         }
     }
 
@@ -82,13 +82,13 @@ public class ControllerGUI {
                 view.displayFail();
                 break;
             case IN_PROGRESS:     
-                view.displayError("Mouvement impossible !!!");         
+                view.displayMessage("Mouvement impossible !!!");         
                 break;
             case NOT_STARTED:
-                view.displayError("La partie n'a pas encore commencé");
+                view.displayMessage("La partie n'a pas encore commencé");
                 break;
             default:
-                view.displayError("Erreur dans le statut du niveau");
+                view.displayMessage("Erreur dans le statut du niveau");
         }
     }
 
